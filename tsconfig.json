@@ -1,24 +1,25 @@
 {
   "compilerOptions": {
-    "module": "esnext",
-    "target": "es2016",
-    "jsx": "react-jsx",
-    "strictFunctionTypes": true,
+    "target": "es2017",
+    "lib": ["es2020"],
+    "typeRoots": ["./node_modules/@types", "./src/types"],
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "pretty": true,
     "sourceMap": true,
     "outDir": "./build",
-    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
-    "skipLibCheck": true,
+    "noEmit": false,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
-  "exclude": ["node_modules", "**/node_modules/*"],
-  "include": ["src", "electron/renderer.ts"]
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules", "tests"]
 }

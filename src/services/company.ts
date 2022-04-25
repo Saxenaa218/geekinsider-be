@@ -1,24 +1,24 @@
-import { Service, Inject } from 'typedi';
-import { ICompany } from './../interfaces/ICompany';
-import { IAbout } from './../interfaces/IAbout';
-import { Logger } from 'winston';
-import { Container } from 'typedi';
-import Request from 'mailgun.js/dist/lib/request';
+import { Service, Inject } from "typedi";
+import { ICompany } from "./../interfaces/ICompany";
+import { IAbout } from "./../interfaces/IAbout";
+import { Logger } from "winston";
+import { Container } from "typedi";
+// import Request from "mailgun.js/dist/lib/request";
 
 @Service()
 export default class CompanyService {
   constructor(
-    @Inject('companyModel') private companyModel: Models.CompanyModel,
-    @Inject('candidateModel') private candidateModel: Models.CandidateModel,
-    @Inject('aboutModel') private aboutModel: Models.AboutModel,
-    @Inject('connectModel') private connectModel: Models.ConnectModel,
+    @Inject("companyModel") private companyModel: Models.CompanyModel,
+    @Inject("candidateModel") private candidateModel: Models.CandidateModel,
+    @Inject("aboutModel") private aboutModel: Models.AboutModel,
+    @Inject("connectModel") private connectModel: Models.ConnectModel
   ) {}
 
   public async AppliedApplicant(jobid, userDetails): Promise<any> {
-    const logger: Logger = Container.get('logger');
+    const logger: Logger = Container.get("logger");
 
     try {
-      logger.debug('the applied applicatns are', jobid);
+      logger.debug("the applied applicatns are", jobid);
 
       const connectRecord = await this.connectModel.find({
         $and: [{ jobslug: jobid }, { companyid: userDetails.currentUser._id }],
@@ -31,18 +31,18 @@ export default class CompanyService {
 
       for (; i < connectRecord.length; i++) {
         logger.debug(connectRecord.length);
-        const fetchCan = { _id: connectRecord[i]['candidateid'] }; // companyRecord.name+"-"+req.body.jobTitle+count
+        const fetchCan = { _id: connectRecord[i]["candidateid"] }; // companyRecord.name+"-"+req.body.jobTitle+count
         const candidateRecord = await this.candidateModel.find(fetchCan);
-        logger.debug('The can record is : ', candidateRecord);
+        logger.debug("The can record is : ", candidateRecord);
         connections.push({
-          skills: candidateRecord[i]['skills'],
-          name: candidateRecord[i]['name'],
-          jobTitle: candidateRecord[i]['jobTitle'],
-          location: candidateRecord[i]['location'],
-          exp: candidateRecord[i]['exp'],
-          whatsappNumber: candidateRecord[i]['whatsappNumber'],
-          userId: candidateRecord[i]['_id'],
-          githubUrl: candidateRecord[i]['githubUrl'],
+          skills: candidateRecord[i]["skills"],
+          name: candidateRecord[i]["name"],
+          jobTitle: candidateRecord[i]["jobTitle"],
+          location: candidateRecord[i]["location"],
+          exp: candidateRecord[i]["exp"],
+          whatsappNumber: candidateRecord[i]["whatsappNumber"],
+          userId: candidateRecord[i]["_id"],
+          githubUrl: candidateRecord[i]["githubUrl"],
         });
       }
 
@@ -55,12 +55,12 @@ export default class CompanyService {
   }
 
   public async SetCompany(req): Promise<{ companyRecord: ICompany }> {
-    const logger: Logger = Container.get('logger');
+    const logger: Logger = Container.get("logger");
 
     try {
-      logger.debug('Submitting the Company Details');
+      logger.debug("Submitting the Company Details");
 
-      const skills = req.body.skills.split(',');
+      const skills = req.body.skills.split(",");
 
       const aboutRecord = await this.aboutModel.create({
         _id: req.currentUser._id,
@@ -76,7 +76,7 @@ export default class CompanyService {
         skills: skills,
         empSize: req.body.empSize,
         site: req.body.site,
-        aboutid: aboutRecord['_id'],
+        aboutid: aboutRecord["_id"],
       });
       logger.debug(companyRecord);
       // Need to update the data in the user model also need to remove console logs once upadted the method properly
@@ -89,13 +89,15 @@ export default class CompanyService {
 
   // GetAppliedCan
 
-  public async GetCanList(request: Request): Promise<any> {
-    const logger: Logger = Container.get('logger');
+  public async GetCanList(request): Promise<any> {
+    const logger: Logger = Container.get("logger");
 
     try {
-      logger.debug('Submitting the Company Details');
+      logger.debug("Submitting the Company Details");
 
-      const companyRecord = await this.companyModel.findById(request.currentUser._id);
+      const companyRecord = await this.companyModel.findById(
+        request.currentUser._id
+      );
       logger.debug(companyRecord);
 
       const query = { skills: { $in: companyRecord.skills } };
@@ -109,12 +111,12 @@ export default class CompanyService {
   }
 
   public async GetCanFromSearch(token, req): Promise<any> {
-    const logger: Logger = Container.get('logger');
+    const logger: Logger = Container.get("logger");
 
     try {
-      logger.debug('Fetching candidates based on skills');
+      logger.debug("Fetching candidates based on skills");
 
-      let query = { skills: { $in: req.query.skills.split(',') } };
+      let query = { skills: { $in: req.query.skills.split(",") } };
       logger.debug(query);
       const candidateRecord = await this.candidateModel.find(query);
 
@@ -125,9 +127,13 @@ export default class CompanyService {
     }
   }
 
-  public async GetCompany(token): Promise<{ companyRecord: ICompany; aboutRecord: IAbout }> {
+  public async GetCompany(
+    token
+  ): Promise<{ companyRecord: ICompany; aboutRecord: IAbout }> {
     try {
-      const companyRecord = await this.companyModel.findById(token.currentUser._id);
+      const companyRecord = await this.companyModel.findById(
+        token.currentUser._id
+      );
 
       const aboutRecord = await this.aboutModel.findById(token.currentUser._id);
 

@@ -1,6 +1,6 @@
 import { Container } from 'typedi';
 import formData from 'form-data';
-import Mailgun from 'mailgun.js';
+// import Mailgun from 'mailgun.js';
 import LoggerInstance from './logger';
 import agendaFactory from './agenda';
 import config from '@/config';
@@ -12,11 +12,11 @@ export default ({ mongoConnection, models }: { mongoConnection; models: { name: 
     });
 
     const agendaInstance = agendaFactory({ mongoConnection });
-    const mgInstance = new Mailgun(formData);
+    // const mgInstance = new Mailgun(formData);
 
     Container.set('agendaInstance', agendaInstance);
     Container.set('logger', LoggerInstance);
-    Container.set('emailClient', mgInstance.client({ key: config.emails.apiKey, username: config.emails.apiUsername }));
+    // Container.set('emailClient', mgInstance.client({ key: config.emails.apiKey, username: config.emails.apiUsername }));
     Container.set('emailDomain', config.emails.domain);
 
     LoggerInstance.info('✌️ Agenda injected into container');
