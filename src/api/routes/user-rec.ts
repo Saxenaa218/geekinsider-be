@@ -99,7 +99,7 @@ export default (app: Router) => {
    *   Recommendation of candidates based on skills defined by recruiter during the onboarding process of the recruiter
    */
 
-  route.get('/getcans', middlewares.isAuth, middlewares.attachCurrentUser, async (req: Request, res: Response) => {
+  route.get('/getcans', middlewares.isAuth, middlewares.attachCurrentUser, async (req: any, res: Response) => {
     const logger: Logger = Container.get('logger');
     if (req.currentUser['role'] === 'userRecruiter') {
       logger.debug('Fetching userdetails of recommended candidate for the given recruiter');

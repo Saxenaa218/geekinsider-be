@@ -89,7 +89,7 @@ export default class CompanyService {
 
   // GetAppliedCan
 
-  public async GetCanList(request): Promise<any> {
+  public async GetCanList(request: any): Promise<any> {
     const logger: Logger = Container.get("logger");
 
     try {
