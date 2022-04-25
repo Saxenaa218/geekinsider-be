@@ -12,7 +12,8 @@
     "lint": "npm run lint:js ",
     "lint:eslint": "eslint --ignore-path .gitignore --ext .ts",
     "lint:js": "npm run lint:eslint src/",
-    "lint:fix": "npm run lint:js -- --fix"
+    "lint:fix": "npm run lint:js -- --fix",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -47,6 +48,7 @@
     "express-basic-auth": "^1.2.0",
     "express-jwt": "^6.0.0",
     "form-data": "^2.3.3",
+    "gh-pages": "^3.2.3",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^3.1.2",
     "lodash": "^4.17.21",
@@ -84,5 +86,5 @@
   "bugs": {
     "url": "https://github.com/santiq/geekinsider-nodejs/issues"
   },
-  "homepage": "https://github.com/santiq/geekinsider-nodejs#readme"
+  "homepage": "https://saxenaa218.github.io/geekinsider-be"
 }
