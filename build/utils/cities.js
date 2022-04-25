@@ -1,0 +1,40 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const cities = [
+    'mumbai', 'delhi', 'bengaluru',
+    'ahmedabad', 'hyderabad', 'chennai',
+    'kolkata', 'pune', 'jaipur',
+    'surat', 'lucknow', 'kanpur',
+    'nagpur', 'patna', 'indore',
+    'thane', 'bhopal', 'visakhapatnam',
+    'vadodara', 'firozabad', 'ludhiana',
+    'rajkot', 'agra', 'siliguri',
+    'nashik', 'faridabad', 'patiala',
+    'meerut', 'kalyan-dombivali', 'vasai-virar',
+    'varanasi', 'srinagar', 'dhanbad',
+    'jodhpur', 'amritsar', 'raipur',
+    'allahabad', 'coimbatore', 'jabalpur',
+    'gwalior', 'vijayawada', 'madurai',
+    'guwahati', 'chandigarh', 'hubli-dharwad',
+    'amroha', 'moradabad', 'gurgaon',
+    'aligarh', 'solapur', 'ranchi',
+    'jalandhar', 'tiruchirappalli', 'bhubaneswar',
+    'salem', 'warangal', 'mira-bhayandar',
+    'thiruvananthapuram', 'bhiwandi', 'saharanpur',
+    'guntur', 'amravati', 'bikaner',
+    'noida', 'jamshedpur', 'bhilai nagar',
+    'cuttack', 'kochi', 'udaipur',
+    'bhavnagar', 'dehradun', 'asansol',
+    'nanded-waghala', 'ajmer', 'jamnagar',
+    'ujjain', 'sangli', 'loni',
+    'jhansi', 'pondicherry', 'nellore',
+    'jammu', 'belagavi', 'raurkela',
+    'mangaluru', 'tirunelveli', 'malegaon',
+    'gaya', 'tiruppur', 'davanagere',
+    'kozhikode', 'akola', 'kurnool',
+    'bokaro steel city', 'rajahmundry', 'ballari',
+    'agartala', 'bhagalpur', 'latur',
+    'dhule'
+];
+exports.default = cities;
+//# sourceMappingURL=cities.js.map
