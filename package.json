@@ -1,7 +1,7 @@
 {
-  "name": "geekinsider-nodejs",
+  "name": "geekinsider-be",
   "version": "1.0.0",
-  "description": "GeekInisder node.js",
+  "description": "GeekInsider backend",
   "main": "src/app.ts",
   "scripts": {
     "build": "tsc",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/santiq/geekinsider-nodejs.git"
+    "url": "git+https://github.com/Saxenaa218/geekinsider-be.git"
   },
   "keywords": [
     "boilerplay",
@@ -29,7 +29,7 @@
     "node",
     "express"
   ],
-  "author": "Santiago Quinteros",
+  "author": "Vishal Kothari",
   "license": "ISC",
   "dependencies": {
     "@useoptic/express-middleware": "^0.0.5",
@@ -82,7 +82,7 @@
     "typescript": "^4.0.3"
   },
   "bugs": {
-    "url": "https://github.com/santiq/geekinsider-nodejs/issues"
+    "url": "https://github.com/Saxenaa218/geekinsider-be/issues"
   },
   "homepage": "https://saxenaa218.github.io/geekinsider-be"
 }

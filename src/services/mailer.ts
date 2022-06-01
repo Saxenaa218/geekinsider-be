@@ -4,7 +4,7 @@ import { IUser } from '@/interfaces/IUser';
 @Service()
 export default class MailerService {
   constructor(
-    @Inject('emailClient') private emailClient,
+    // @Inject('emailClient') private emailClient,
     @Inject('emailDomain') private emailDomain,
   ) { }
 
@@ -20,7 +20,7 @@ export default class MailerService {
       text: 'Testing some Mailgun awesomness!'
     };
     try {
-      this.emailClient.messages.create(this.emailDomain, data);
+      // this.emailClient.messages.create(this.emailDomain, data);
       return { delivered: 1, status: 'ok' };
     } catch(e) {
       return  { delivered: 0, status: 'error' };
