@@ -12,8 +12,7 @@
     "lint": "npm run lint:js ",
     "lint:eslint": "eslint --ignore-path .gitignore --ext .ts",
     "lint:js": "npm run lint:eslint src/",
-    "lint:fix": "npm run lint:js -- --fix",
-    "deploy": "gh-pages -d build"
+    "lint:fix": "npm run lint:js -- --fix"
   },
   "repository": {
     "type": "git",
