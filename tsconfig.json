@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es2020",
-    "lib": ["es2020"],
+    "skipLibCheck": true,
+    "target": "es2017",
+    "lib": ["es2017", "esnext.asynciterable"],
     "typeRoots": ["./node_modules/@types", "./src/types"],
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
@@ -18,16 +19,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    },
-    "skipLibCheck": true,
-    "types": []
+    }
   },
   "include": ["./src/**/*"],
-  "exclude": [
-    "node_modules",
-    "./node_modules",
-    "./node_modules/*",
-    "./node_modules/@types/node/index.d.ts",
-    "tests"
-  ]
+  "exclude": ["node_modules", "tests"]
 }
