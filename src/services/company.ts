@@ -3,8 +3,7 @@ import { ICompany } from "./../interfaces/ICompany";
 import { IAbout } from "./../interfaces/IAbout";
 import { Logger } from "winston";
 import { Container } from "typedi";
-import { Request } from "express";
-// import Request from "mailgun.js/dist/lib/request";
+// import Request from 'mailgun.js/dist/lib/request';
 
 @Service()
 export default class CompanyService {
@@ -90,7 +89,7 @@ export default class CompanyService {
 
   // GetAppliedCan
 
-  public async GetCanList(request: Request): Promise<any> {
+  public async GetCanList(request: any): Promise<any> {
     const logger: Logger = Container.get("logger");
 
     try {
